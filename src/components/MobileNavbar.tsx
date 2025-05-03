@@ -15,11 +15,28 @@ import { useState } from "react";
 import { useAuth, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { currentUser } from "@clerk/nextjs/server";
 
-function MobileNavbar() {
+interface UserData {
+  id: string;
+  username: string | null;
+  email: string | undefined;
+  imageUrl: string;
+}
+
+interface MobileNavbarClientProps {
+  user: UserData | null;
+}
+
+
+function MobileNavbar({user}: MobileNavbarClientProps) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { isSignedIn } = useAuth();
   const { theme, setTheme } = useTheme();
+
+   const handleNavClick = () => {
+    setShowMobileMenu(false);
+   }
 
   return (
     <div className="flex md:hidden items-center space-x-2">
@@ -45,7 +62,7 @@ function MobileNavbar() {
             <SheetTitle>Menu</SheetTitle>
           </SheetHeader>
           <nav className="flex flex-col space-y-4 mt-6">
-            <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
+            <Button onClick={handleNavClick} variant="ghost" className="flex items-center gap-3 justify-start" asChild>
               <Link href="/">
                 <HomeIcon className="w-4 h-4" />
                 Home
@@ -54,20 +71,20 @@ function MobileNavbar() {
 
             {isSignedIn ? (
               <>
-                <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
-                  <Link href="/notifications">
+                <Button onClick={handleNavClick} variant="ghost" className="flex items-center gap-3 justify-start" asChild>
+                  <Link href="/notification">
                     <BellIcon className="w-4 h-4" />
                     Notifications
                   </Link>
                 </Button>
-                <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
-                  <Link href="/profile">
+                <Button onClick={handleNavClick} variant="ghost" className="flex items-center gap-3 justify-start" asChild>
+                  <Link href={`/profile/${user?.username ?? user?.email?.split("@")[0]}`}>
                     <UserIcon className="w-4 h-4" />
                     Profile
                   </Link>
                 </Button>
                 <SignOutButton>
-                  <Button variant="ghost" className="flex items-center gap-3 justify-start w-full">
+                  <Button onClick={handleNavClick} variant="ghost" className="flex items-center gap-3 justify-start w-full">
                     <LogOutIcon className="w-4 h-4" />
                     Logout
                   </Button>
@@ -75,7 +92,7 @@ function MobileNavbar() {
               </>
             ) : (
               <SignInButton mode="modal">
-                <Button variant="default" className="w-full">
+                <Button onClick={handleNavClick} variant="default" className="w-full">
                   Sign In
                 </Button>
               </SignInButton>
