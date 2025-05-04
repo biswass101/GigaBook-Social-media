@@ -45,3 +45,27 @@ GigaBook also includes robust authentication options like **Google OAuth login**
 - **Neon** – Serverless PostgreSQL database
 - **UploadThing** – File/image upload handler
 - **shadcn/ui** – Modern UI component library based on Tailwind CSS
+
+####After installation this will be necessary:
+-- Environment Variables
+```env
+DATABASE_URL=your_neon_database_url
+NEXTAUTH_SECRET=your_random_secret
+NEXTAUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+UPLOADTHING_SECRET=your_uploadthing_secret
+UPLOADTHING_APP_ID=your_uploadthing_app_id
+
+```
+
+####Database setup
+```prisma
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+####run
+```
+npm run dev
+```
