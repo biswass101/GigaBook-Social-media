@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 GigaBook - A Modern Social Media Web App
 
-## Getting Started
+## Overview
 
-First, run the development server:
+**GigaBook** is a modern, full-stack social media application built with **Next.js**, designed to offer a seamless and interactive experience for users to connect, share, and engage with each other. It features essential social networking functionalities such as post creation, commenting, likes, following, and real-time notifications — all wrapped in a clean and responsive user interface powered by **shadcn/ui**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+GigaBook also includes robust authentication options like **Google OAuth login** and **OTP verification**, providing a secure and user-friendly sign-up and login flow. All media uploads are handled via **UploadThing**, and data persistence is managed with **Prisma ORM** and **Neon**, a scalable and serverless PostgreSQL database.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🔐 **Authentication**
+  - Google OAuth sign-up and login
+  - OTP (One-Time Password) verification
+  - Secure logout
 
-## Learn More
+- 📝 **Social Features**
+  - Create and share posts with **images and text**
+  - Like and comment on posts
+  - Delete your own posts and comments
 
-To learn more about Next.js, take a look at the following resources:
+- 🧑‍🤝‍🧑 **User Interactions**
+  - Follow and unfollow other users
+  - View other users' profiles and bios
+  - Edit your own profile bio
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🔔 **Notifications**
+  - Real-time notifications for:
+    - New followers
+    - Likes on your posts
+    - Comments on your posts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📄 **Profile Management**
+  - Public user profiles
+  - Bio editing
+  - View posts and interactions
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🛠️ Built With
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js** – React-based framework for full-stack web development
+- **Prisma** – Type-safe ORM for database access
+- **Neon** – Serverless PostgreSQL database
+- **UploadThing** – File/image upload handler
+- **shadcn/ui** – Modern UI component library based on Tailwind CSS
