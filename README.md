@@ -46,8 +46,8 @@ GigaBook also includes robust authentication options like **Google OAuth login**
 - **UploadThing** – File/image upload handler
 - **shadcn/ui** – Modern UI component library based on Tailwind CSS
 
-####After installation this will be necessary:
--- Environment Variables
+#### After installation this will be necessary
+**Environment Variables**
 ```env
 DATABASE_URL=your_neon_database_url
 NEXTAUTH_SECRET=your_random_secret
@@ -59,13 +59,13 @@ UPLOADTHING_APP_ID=your_uploadthing_app_id
 
 ```
 
-####Database setup
+**Database setup**
 ```prisma
 npx prisma generate
 npx prisma migrate dev --name init
 ```
 
-####run
+**Run**
 ```
 npm run dev
 ```
